@@ -4,3 +4,12 @@ services:
     build: ./base/php
     volumes:
       - ./backend:/work
+
+  web:
+    image: nginx:1.20-alpine
+    ports:
+      - 8080:80
+    volumes:
+      - ./backend:/work
+      - ./base/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    working_dir: /work
