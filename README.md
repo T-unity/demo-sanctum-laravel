@@ -4,7 +4,7 @@
 
 ```
 $ git clone git@github.com:T-unity/laravel-template.git
-$ cd normal-laravel
+$ cd laravel-template
 $ docker compose up -d --build
 $ docker compose exec app bash
 
