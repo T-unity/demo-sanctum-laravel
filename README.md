@@ -3,7 +3,7 @@
 ## build
 
 ```
-$ git clone git@github.com:T-unity/normal-laravel.git
+$ git clone git@github.com:T-unity/laravel-template.git
 $ cd normal-laravel
 $ docker compose up -d --build
 $ docker compose exec app bash
