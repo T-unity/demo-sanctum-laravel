@@ -19,6 +19,10 @@ $ docker compose exec app bash
 ## VCS
 
 ```
+git remote set-url origin (your_repo's_url)
+
+or
+
 git add .
 git commit -m 'init'
 git push (your_repo's_url) master
