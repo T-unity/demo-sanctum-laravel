@@ -20,6 +20,8 @@ $ docker compose exec app bash
 
 ```
 git remote set-url origin (your_repo's_url)
+e.g: git remote set-url origin git@github.com:T-unity/laravel-prod.git
+(Use ssh instead of http)
 
 or
 
