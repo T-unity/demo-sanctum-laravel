@@ -19,3 +19,7 @@ Route::get('/', function () {
 
 Route::post('/login', 'App\Http\Controllers\LoginController@login');
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
+
+// Route::group(['middleware' => ['auth:sanctum']], function () {
+//   Route::post('/login_check', 'App\Http\Controllers\LoginFunctionTestController@check');
+// });
