@@ -8,25 +8,49 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
 
-        if (Auth::attempt($credentials)) {
-            return response()->json(['message' => 'Login successful'], 200);
-        }
+  protected function getGuard()
+  {
+      return Auth::guard(config('auth.defaults.guard'));
+  }
 
-        throw ValidationException::withMessages([
-            'email' => ['The provided credentials are incorrect'],
-        ]);
-    }
+  public function login(Request $request)
+  {
+      $credentials = $request->validate([
+          'email' => 'required|email',
+          'password' => 'required'
+      ]);
 
-    public function logout()
-    {
-        Auth::logout();
-        return response()->json(['message' => 'Logged out'], 200);
-    }
+      if (Auth::attempt($credentials)) {
+          return response()->json(['message' => 'Login successful'], 200);
+      }
+
+      throw ValidationException::withMessages([
+          'email' => ['The provided credentials are incorrect'],
+      ]);
+  }
+
+  // public function logout(Request $request)
+  public function logout(Request $request)
+  {
+
+    // Auth::guard('web')->logout();
+
+    // $request->session()->invalidate();
+    // $request->session()->regenerateToken();
+
+  //   $credentials = $request->validate([
+  //     'email' => 'required|email',
+  //     'password' => 'required'
+  // ]);
+
+    // Auth::logout($credentials);
+
+    // $this->getGuard()->logout();
+    // $request->session()->invalidate();
+    // $request->session()->regenerateToken();
+
+    Auth::logout();
+      return response()->json(['message' => 'Logged out'], 200);
+  }
 }
